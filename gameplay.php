@@ -50,7 +50,15 @@ if(!empty($_POST['submit'])) {
         } else {
             return array_shift($_SESSION['farm']['farmer_alive'])
         }
+    }
 
+    if (count($_SESSION['feed']) < 50) {
+        $_SESSION['feed'] = generate_random_feed();
+
+        if (count($_SESSION['feed']) == 8 || count($_SESSION['feed']) == 16 || count($_SESSION['feed']) == 24 || 
+        count($_SESSION['feed']) == 32 || count($_SESSION['feed']) == 40 || count($_SESSION['feed']) == 48) {
+            
+        }
     }
 
 }
