@@ -11,6 +11,9 @@ if(!emtpy($_SESSION)) {
     $_SESSION['farm']['cows_alive'] = array('C1', 'C2');
     $_SESSION['farm']['dead_cows'];
     $_SESSION['farm']['farmer_alive'] = array('F');
+    $_SESSION['reloadB'] = 'N';
+    $_SESSION['reloadC'] = 'N';
+    $_SESSION['reloadF'] = 'N';
     $_SESSION['submit'] = '';
     $_SESSION['reload'] = 'disabled';
 }
@@ -57,7 +60,19 @@ if(!empty($_POST['submit'])) {
 
         if (count($_SESSION['feed']) == 8 || count($_SESSION['feed']) == 16 || count($_SESSION['feed']) == 24 || 
         count($_SESSION['feed']) == 32 || count($_SESSION['feed']) == 40 || count($_SESSION['feed']) == 48) {
-            
+            if($_SESSION['reloadB'] == '') {
+                $temp = array();
+                foreach($_SESSION['farm']['Bunnies'] as $k) {
+                    if (in_array($k, $_SESSION['farm']['bunnies_alive'])) {
+                        $_SESSION['dead_bunnies'][count($_SESSION['feed'])][] = $val;
+                    } else {
+                        $temp[] = $val;
+                    }
+                }
+                $_SESSION['farm']['Bunnies'] = $temp;
+                $_SESSION['farm']['bunnies_alive'] = $temp;
+            }
+            $_SESSION['reloadB'] = 'N'
         }
     }
 
