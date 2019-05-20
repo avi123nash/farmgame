@@ -1,3 +1,11 @@
+#Steps to run the game
+Just have xampp installed in your localmachine
+
+clone the repo in the htdocs.
+
+Url - localhost/farmgame/index.php
+
+
 # Farm Game
 **Objective**
 
