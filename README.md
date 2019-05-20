@@ -1,4 +1,5 @@
-#Steps to run the game
+# Steps to run the game
+
 Just have xampp installed in your localmachine
 
 clone the repo in the htdocs.
